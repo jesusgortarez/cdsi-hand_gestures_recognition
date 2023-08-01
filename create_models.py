@@ -6,7 +6,7 @@ import numpy as np
 import mediapipe as mp
 import sys
 from joblib import dump
-from sklearn.svm import SVC
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 mpHands = mp.solutions.hands
 hands = mpHands.Hands(max_num_hands=2)
@@ -40,13 +40,15 @@ for directory in os.listdir(dataset_path):
             features = df.to_numpy().flatten()
             X.append(features)
 
-y = np.asarray(y)
-X = np.asarray(X)
 
-svclassifier = SVC(kernel='poly', degree=3)
-svclassifier.fit(X, y)
+print(y)
+print("ahora xxxxx")
+print(X)
+
+ldalassifier = LinearDiscriminantAnalysis()
+ldalassifier.fit(X, y)
 
 os.makedirs('models', exist_ok=False)
 
-path = os.path.join('models', 'hand_gesture_model.joblib')
-dump(svclassifier, path)
+path = os.path.join('models', 'hand_gesture_model_lda.joblib')
+dump(ldalassifier, path)

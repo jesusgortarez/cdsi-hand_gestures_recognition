@@ -6,16 +6,9 @@ Se sugiere ejecutar el código en una máquina Linux con anaconda instalado, par
 ```
 conda create -n hand-gesture
 conda activate hand-gesture
-conda install -c anaconda scikit-learn
-conda install -c anaconda joblib
-conda install -c anaconda ipykernel 
-conda install -c conda-forge notebook
-pip install pygame
-pip install gTTS
-conda install -c conda-forge pandas 
-pip install mediapipe
-pip install opencv-python
-conda install -c conda-forge pynput
+conda install -c anaconda scikit-learn joblib ipykernel
+conda install -c conda-forge notebook pandas pynput
+pip install pygame gTTS mediapipe opencv-python
 ```
 
 Posteriormente es necesario generar los modelos de clasificación ejecutando el siguiente comando:
@@ -23,7 +16,7 @@ Posteriormente es necesario generar los modelos de clasificación ejecutando el 
 python create_models.py
 ```
 
-Una vez creados los modelos es posible crear el escript ejecutando el siguiente comando:
+Una vez creados los modelos es posible crear el script ejecutando el siguiente comando:
 ```
-python hand_gesture_recognition.py
+hand_gesture_recognition.py
 ```
